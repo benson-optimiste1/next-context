@@ -1,6 +1,6 @@
 "use client"
 import { useContext } from "react"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { AuthContext } from "@/context/AuthContext"
 
 const defaultUser = {
@@ -10,11 +10,13 @@ const defaultUser = {
 
 export default function Login() {
 
+  const router = useRouter()
+
   const { setUser } = useContext(AuthContext)
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
-    setUser(defaultUser)
+    await setUser(defaultUser)
     // redirect to dashboard
     router.push('/dashboard')
   }
@@ -70,6 +72,7 @@ export default function Login() {
               className='w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-green-500 shadow-md hover:text-black hover:bg-white focus:outline-none focus:ring-2'>
               <span className='w-full'>Submit</span>
             </button>
+           
           </form>
         </div>
       </div>
