@@ -2,6 +2,7 @@
 import { useContext } from "react"
 import { useRouter } from "next/navigation"
 import { AuthContext } from "@/context/AuthContext"
+import CheckAuth from "../dashboard/CheckAuth"
 
 const defaultUser = {
   name: 'John Savinosaurus',
@@ -26,6 +27,7 @@ export default function Login() {
       <div className='flex flex-col w-full md:w-1/2'>
         <div className='flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32'>
           <p className='text-3xl text-center'>Welcome.</p>
+          <CheckAuth/>
           <form onSubmit={handleLogin} className='flex flex-col pt-3 md:pt-8'>
             <div className='flex flex-col pt-4'>
               <div className='flex relative '>
